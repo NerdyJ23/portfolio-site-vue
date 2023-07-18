@@ -1,15 +1,16 @@
 <template>
-
+	<div>
+		<site-timeline />
+	</div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
+import SiteTimeline from '@/components/Sites/SiteTimeline.vue';
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      SiteTimeline,
     },
   }
 </script>
