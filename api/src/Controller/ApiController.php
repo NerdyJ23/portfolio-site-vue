@@ -18,7 +18,7 @@ class ApiController extends Controller {
 	public function initialize(): void {
 		parent::initialize();
 		$this->loadComponent('RequestHandler');
-        $this->viewBuilder()->setClassName('Json');
+		$this->viewBuilder()->setClassName('Json');
 	}
 
 	public function index() {
@@ -42,8 +42,8 @@ class ApiController extends Controller {
 		return (new EncryptionController)->decrypt($id);
 	}
 
-    protected function response($enum) {
-        $response = new Response();
+	protected function response($enum) {
+		$response = new Response();
 		try {
 			return match($enum) {
 				StatusCodes::SUCCESS => $response->withStatus(200),
@@ -60,7 +60,7 @@ class ApiController extends Controller {
 		} catch (any $err) {
 			return $response->withStatus(500);
 		}
-    }
+	}
 }
 
 ?>
