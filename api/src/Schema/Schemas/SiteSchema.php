@@ -9,7 +9,9 @@ class SiteSchema implements SchemaInterface {
 		return [
 			'name' => $site->Name,
 			'description' => $site->Description,
+			'url' => $site->URL,
 			'date' => $site->Date,
+			'images' => $site->ImagesDirectory,
 			'languages' => AbstractSchema::schema($site->programming_languages, "ProgrammingLanguage")
 		];
 	}
