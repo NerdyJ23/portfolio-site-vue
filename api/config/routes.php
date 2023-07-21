@@ -49,7 +49,11 @@ return static function (RouteBuilder $routes) {
 			$builder->get("/", "Sites::list");
 		});
 
-        $builder->fallbacks();
+		$builder->scope("/images", function (RouteBuilder $builder) {
+			$builder->get("/{path}/{file}", "Sites::getImage")
+			->setPass(["path", "file"]);
+		});
+        // $builder->fallbacks();
     });
 
     /*
