@@ -1,10 +1,18 @@
 <template>
 	<v-timeline>
-		<v-timeline-item v-for="site in sites">
-			<template v-slot:opposite>
+		<v-timeline-item v-for="site, index in sites"
+			:hide-dot="!(index === 0 || sites[index - 1].date !== site.date)"
+		>
+			<template v-if="index === 0 || sites[index - 1].date !== site.date" v-slot:opposite>
 				{{ site.date }}
 			</template>
-			<site-card :name="site.name" :description="site.description" :url="site.url"/>
+			<site-card
+				:name="site.name"
+				:description="site.description"
+				:url="site.url"
+				:languages="site.languages"
+				:images="site.images"
+			/>
 		</v-timeline-item>
 	</v-timeline>
 </template>
