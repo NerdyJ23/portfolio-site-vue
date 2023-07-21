@@ -4,6 +4,7 @@ namespace App\Schema\Schemas;
 use App\Schema\SchemaInterface;
 use App\Schema\AbstractSchema;
 use App\Client\Security\EncryptionClient;
+use App\Client\Sites\SitesClient;
 
 class SiteSchema implements SchemaInterface {
 	static function toSummarizedSchema($site): mixed {
@@ -13,7 +14,7 @@ class SiteSchema implements SchemaInterface {
 			'description' => $site->Description,
 			'url' => $site->URL,
 			'date' => $site->Date,
-			'images' => $site->ImagesDirectory,
+			'images' => SitesClient::getImageList($site->ImagesDirectory),
 			'languages' => AbstractSchema::schema($site->programming_languages, "ProgrammingLanguage")
 		];
 	}
