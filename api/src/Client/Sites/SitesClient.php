@@ -33,6 +33,9 @@ class SitesClient extends AbstractClient {
 			return [];
 		}
 		//convert associative array to simple array, remove .. and . "files" in the directory
-		return array_values(array_diff(scandir(self::IMAGES_DIR . $dir), array('..', '.')));
+		$result = array_values(array_diff(scandir(self::IMAGES_DIR . $dir), array('..', '.', '.gitkeep')));
+		$callback = fn(string $item):string => 'images/' . $dir . '/' . $item;
+		$result = array_map($callback, $result);
+		return $result;
 	}
 }
