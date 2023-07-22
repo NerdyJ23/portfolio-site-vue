@@ -9,6 +9,9 @@ class SitesClient extends AbstractClient {
 	static function list(): mixed {
 		$query = parent::fetchTable(self::TABLE)
 		->find('all')
+		->where([
+			'Visible' => true
+		])
 		->contain(["ProgrammingLanguages"])
 		->order(['date' => 'DESC']);
 
