@@ -1,6 +1,6 @@
 <template>
 	<v-card>
-		<v-img v-if="images" />
+		<v-img v-if="images.length" :src="`https://jessprogramming.com:8080/${images[0]}`"/>
 		<v-card-title>{{ name }}</v-card-title>
 		<v-card-text>
 			<div>
