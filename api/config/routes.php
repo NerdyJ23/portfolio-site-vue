@@ -50,7 +50,12 @@ return static function (RouteBuilder $routes) {
 		});
 
 		$builder->scope("/images", function (RouteBuilder $builder) {
-			$builder->get("/{path}/{file}", "Sites::getImage")
+			$builder->scope("/icons", function (RouteBuilder $builder) {
+				$builder->get("/{path}/{file}", "Files/Images::getIcon")
+				->setPass(["path", "file"]);
+			});
+
+			$builder->get("/{path}/{file}", "Files/Images::getImage")
 			->setPass(["path", "file"]);
 		});
         // $builder->fallbacks();
