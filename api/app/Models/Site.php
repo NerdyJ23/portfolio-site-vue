@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Model\Entity\ProgrammingLanguage;
+use App\Models\ProgrammingLanguage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,6 +12,7 @@ class Site extends Model
     use HasFactory;
 
 	protected $table = "Sites";
+	protected $primaryKey = "ID";
 
 	public $timestamps = false;
 

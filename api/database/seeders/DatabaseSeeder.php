@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
 			ProgrammingLanguagesSeeder::class,
 			SiteSeeder::class
 		]);
+
+		//After seeding create links
+		SiteSeeder::AddLanguagesToSite();
     }
 }

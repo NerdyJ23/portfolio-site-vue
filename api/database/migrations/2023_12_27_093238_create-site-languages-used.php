@@ -9,15 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-	const TABLE = "ProgrammingLanguages";
-
+	const TABLE = "SiteLanguagesUsed";
     public function up(): void
     {
-		if (!Schema::hasTable(self::TABLE)) {
+        if(!Schema::hasTable(self::TABLE)) {
 			Schema::create(self::TABLE, function (Blueprint $table) {
-				$table->id("ID");
-				$table->string("Name", 30)->nullable(false)->unique(true);
-				$table->string("Icon", 50);
+				$table->id();
+				$table->unsignedBigInteger("Site_ID");
+				$table->unsignedBigInteger("Programming_Language_ID");
 			});
 		}
     }
@@ -27,6 +26,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(self::TABLE);
+        //
     }
+
+	//Add constraints and fk here as all tables will exist
+	public function after(): void {
+
+	}
 };

@@ -11,6 +11,8 @@ class ProgrammingLanguage extends Model
 {
     use HasFactory;
 	protected $table = "ProgrammingLanguages";
+	protected $primaryKey = "ID";
+
 	public $timestamps = false;
 
 	protected $fillable = [

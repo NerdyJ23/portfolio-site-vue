@@ -17,8 +17,8 @@ return new class extends Migration
 				$table->id("ID");
 				$table->string("Name", 255)->nullable(false);
 				$table->string("Description", 3000);
-				$table->string("Url", 1000);
-				$table->string("Repo", 1000);
+				$table->string("Url", 1000)->nullable(true);
+				$table->string("Repo", 1000)->nullable(true);
 				$table->string("Date", 30);
 				$table->string("ImagesDirectory", 50);
 				$table->boolean("Visible")->nullable(false)->default(false);
