@@ -18,6 +18,5 @@ class DatabaseSeeder extends Seeder
 		]);
 
 		//After seeding create links
-		SiteSeeder::AddLanguagesToSite();
     }
 }

@@ -1,19 +1,22 @@
 <?php
 
+use App\Models\Site;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-	const TABLE = "Sites";
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-		if (!Schema::hasTable(self::TABLE)) {
-			Schema::create(self::TABLE, function (Blueprint $table) {
+		$site = new Site();
+		$table = $site->getTable();
+		print_r($table);
+		if (!Schema::hasTable($table)) {
+			Schema::create($table, function (Blueprint $table) {
 				$table->id("ID");
 				$table->string("Name", 255)->nullable(false);
 				$table->string("Description", 3000);
@@ -32,6 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(self::TABLE);
+		$site = new Site();
+        Schema::dropIfExists($site->getTable());
     }
 };

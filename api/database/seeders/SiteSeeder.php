@@ -114,7 +114,7 @@ class SiteSeeder extends Seeder
 			]);
     }
 
-	public static function AddLanguagesToSite() {
+	public static function after() {
 		foreach (self::SITE_LANGUAGES as $sitename => $languages ) {
 			$site = SiteClient::search($sitename);
 			if (!is_null($site)) {
