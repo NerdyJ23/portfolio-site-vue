@@ -39,6 +39,12 @@ export default {
 		},
 		async loadSiteList() {
 			const response = await cakeApi.listSites();
+			console.log(response);
+			
+			if(response === null) {
+				console.error("failed to load site list");
+				return;
+			}
 
 			if (response.status === 200) {
 				this.sites = response.data.result;

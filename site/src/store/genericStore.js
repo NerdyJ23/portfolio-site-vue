@@ -1,5 +1,5 @@
 const state = {
-	api: 'https://jessprogramming.com:8080',
+	api: 'https://portfolio.jessica-moolenschot.dev',
 	months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 	weekday: ['Sunday', 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
   }
