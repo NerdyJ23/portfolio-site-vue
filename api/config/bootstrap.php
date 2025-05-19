@@ -194,7 +194,7 @@ if(env("DEBUG") == "true") {
 		header('Access-Control-Allow-Origin: http://localhost:1234');
 	}
 } else {
-    header('Access-Control-Allow-Origin: https://jessprogramming.com');
+    header('Access-Control-Allow-Origin: https://jessica-moolenschot.dev');
 }
 
 header('Access-Control-Allow-Credentials: true');
